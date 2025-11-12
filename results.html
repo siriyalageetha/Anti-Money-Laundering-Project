@@ -1,0 +1,19 @@
+<!-- templates/result.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AML Prediction Result</title>
+</head>
+<body>
+  <h2>Model: {{ model_name }}</h2>
+  <h3>Input</h3>
+  <pre>{{ record }}</pre>
+  <h3>Prediction</h3>
+  <p>is_suspicious: <strong>{{ result.is_suspicious }}</strong></p>
+  {% if result.probability is not none %}
+    <p>Probability (model): {{ '%.3f' % result.probability }}</p>
+  {% endif %}
+  <a href="/">Back</a>
+</body>
+</html>

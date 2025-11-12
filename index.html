@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AML Demo - Predict</title>
+</head>
+<body>
+  <h2>AML Transaction Prediction (demo)</h2>
+  <form action="/predict" method="post">
+    <label>transaction_amount: <input name="transaction_amount" value="12000"></label><br>
+    <label>transaction_frequency: <input name="transaction_frequency" value="1"></label><br>
+    <label>offshore_flag (0/1): <input name="offshore_flag" value="1"></label><br>
+    <label>client_age: <input name="client_age" value="45"></label><br>
+    <label>country_risk_score (0-1): <input name="country_risk_score" value="0.8"></label><br>
+    <label>account_age_days: <input name="account_age_days" value="150"></label><br>
+    <label>num_payees: <input name="num_payees" value="6"></label><br>
+    <label>avg_txn_amt_30d: <input name="avg_txn_amt_30d" value="3000"></label><br>
+    <label>Model:
+      <select name="model_name">
+        <option>RandomForest</option>
+        <option>XGBoost</option>
+        <option>SVM</option>
+      </select>
+    </label><br>
+    <button type="submit">Predict</button>
+  </form>
+  <hr>
+  <form action="/train" method="post">
+    <button type="submit">(Re) Train Models (runs train_pipeline.py)</button>
+  </form>
+</body>
+</html>
